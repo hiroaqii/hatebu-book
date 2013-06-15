@@ -53,6 +53,7 @@
            [:p "お世話になっているサイト　" [:a.site-link {:href "http://b.hatena.ne.jp/" :target "_blank"} "はてなブックマーク"]]
            [:p "お世話になっているプラットフォーム　" [:a.site-link {:href "https://www.heroku.com/" :target "_blank"} "Heroku"]]
            [:p "お世話になっている言語　" [:a.site-link {:href "http://clojure.org/" :target "_blank"} "Clojure"]]
+           [:p "ソースコード　" [:a.site-link {:href "https://github.com/hiroftp/hatebu-book" :target "_blank"} "GitHub"]]
            [:p "作った人　" [:a.site-link {:href "https://twitter.com/hiroftp" :target "_blank"} "@hiroftp　"]
                            [:a.site-link {:href "http://instagram.com/hiroftp" :target "_blank"} "ねこー！"]]
            [:br] [:br]
@@ -72,6 +73,7 @@
       "js/jquerypp.custom.min.js"
       "js/jquery.bookblock.min.js"
       "js/page.js")
+      "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-41776305-1', 'herokuapp.com');ga('send', 'pageview'); </script>"
       ]
      ]
     )
