@@ -13,13 +13,19 @@
                                     :game "http://b.hatena.ne.jp/hotentry/game.rss"
                                     :fun "http://b.hatena.ne.jp/hotentry/fun.rss"})
 
+(def cache (atom {:time (.getTime (Date.))}))
+
+(defn- expired-cache-time? []
+  (let [n (- (.getTime (Date.))(:time @cache))]
+    (> n 900000))) ;;15min
+
 (defn- get-item-tag-elems [elems]
   (filter #(= :item (:tag %)) elems))
 
 (defn- convert-elem [item]
-  (as-> (:content item) x
-        (map (fn [{key :tag val :content}][key (first val)]) x)
-        (into {} x)))
+  (->> (:content item)
+       (map (fn [{key :tag val :content}][key (first val)]))
+       (into {})))
 
 (defn- select-elem [item-elem]
   (select-keys item-elem [:hatena:bookmarkcount :link :title]))
@@ -32,4 +38,7 @@
         {k x}))
 
 (defn get-hatebu []
-  (reduce merge (pmap get-rss-item-elems hatebu-urls)))
+  (if (or (expired-cache-time?)(nil? (:ret @cache)))
+    (do (reset! cache {:time (.getTime (Date.)) :ret (reduce merge (pmap get-rss-item-elems hatebu-urls))})
+        (:ret @cache))
+    (:ret @cache)))
