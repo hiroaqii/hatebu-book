@@ -6,6 +6,7 @@
                  [cheshire "5.1.2"]
                  [hiccup "1.0.3"]
                  [ring/ring-jetty-adapter "1.2.0-beta3"]
+                 [org.clojars.mikejs/ring-gzip-middleware "0.1.0-SNAPSHOT"]
                  ]
   :plugins [[lein-ring "0.8.3"]]
   :ring {:handler hatebu-book.handler/app}

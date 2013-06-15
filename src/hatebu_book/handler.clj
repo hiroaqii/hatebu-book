@@ -5,7 +5,8 @@
             [compojure.route :as route]
             [hatebu-book.core :as core]
             [hatebu-book.view :as view]
-            [cheshire.core :as json]))
+            [cheshire.core :as json]
+            [ring.middleware.gzip :as gzip]))
 
 (defroutes app-routes
   (GET "/" [] (view/index))
@@ -16,7 +17,8 @@
   (route/not-found "Not Found"))
 
 (def app
-  (handler/site app-routes))
+  (-> (handler/site app-routes)
+       gzip/wrap-gzip))
 
 (defn -main [& args]
   (let [port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
