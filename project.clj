@@ -7,7 +7,7 @@
                  [hiccup "1.0.3"]
                  [ring/ring-jetty-adapter "1.2.0-beta3"]
                  ]
-  :plugins [[lein-ring "0.8.5"]]
+  :plugins [[lein-ring "0.8.3"]]
   :ring {:handler hatebu-book.handler/app}
   :main hatebu-book.handler
   :profiles {:dev {:dependencies [[ring-mock "0.1.5"]]}})
