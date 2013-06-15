@@ -1,6 +1,6 @@
 # hatebu-book
 
-FIXME
+http://hatebu-book.herokuapp.com/
 
 ## Prerequisites
 
